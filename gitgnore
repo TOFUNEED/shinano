@@ -1,0 +1,50 @@
+# ==================================
+# TOFUNEED しなの鉄道アプリ .gitignore
+# ==================================
+
+# 1. Firebase設定ファイル
+# ----------------------------------
+# APIキーなどの機密情報が含まれるため、絶対にGitリポジトリに含めない。
+# デプロイ時には、NetlifyやGitHub Actionsの環境変数機能を利用して設定を注入するのがベストプラクティス。
+assets/js/firebase-config.js
+
+
+# 2. OSが自動生成するファイル
+# ----------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+
+# 3. エディタ/IDEの設定ファイル
+# ----------------------------------
+# VS Code
+.vscode/
+.history/
+
+# JetBrains IDEs (WebStormなど)
+.idea/
+
+
+# 4. パッケージマネージャの依存関係ファイル
+# ----------------------------------
+# 将来的にnpmなどを導入した場合に備える
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+
+# 5. ビルド成果物・ログファイル
+# ----------------------------------
+# 将来的にビルドプロセスを導入した場合に備える
+dist/
+build/
+*.log

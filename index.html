@@ -102,12 +102,16 @@
          Firebase SDK & アプリケーションスクリプト
          type="module" でモジュールとして読み込みます
          =============================================== -->
+    <!-- index.html の末尾 -->
+
+    <!-- ... -->
     <script type="module" src="assets/js/firebase-config.js"></script>
     <script type="module" src="assets/js/ui.js"></script>
     <script type="module" src="assets/js/auth.js"></script>
     <script type="module" src="assets/js/firestore.js"></script>
+    <!-- ★★★ データファイルを先に追加 ★★★ -->
+    <script type="module" src="assets/js/station-data.js"></script>
     <script type="module" src="assets/js/timetable.js"></script>
-    <script type="module" src="assets/js/main.js"></script> <!-- 司令塔は最後に -->
-
+    <script type="module" src="assets/js/main.js"></script> 
 </body>
 </html>

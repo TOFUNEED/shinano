@@ -3,7 +3,6 @@
  * 
  * アプリケーションが使用する、全ての静的なデータを保持する「データ倉庫」。
  * このファイルはデータのみをエクスポートし、ロジックは一切含まない。
- * ダイヤ改正があった場合は、主にこのファイルが更新されることになる。
  */
 
 // =============================================================
@@ -27,20 +26,16 @@ export const stationCoords = {
     "黒姫":       { "lat": 36.85333, "lon": 138.24333 }, "妙高高原":   { "lat": 36.88333, "lon": 138.25139 }
 };
 
-
 // =============================================================
-//  データ2：真の全時刻表データ (JSON形式)
+//  データ2：駅名とJSONファイル名のマッピング
 // =============================================================
-// 注意: これは平日ダイヤのデータです。
-export const timetableData = {
-    // このオブジェクトに、しなの鉄道の全駅の時刻表データが含まれています。
-    // (データが長大なため、ここでは代表として一部の駅のみを示しますが、
-    //  実際にはこの後に篠ノ井駅など、全ての駅のデータが続いています)
-    "軽井沢": { "up": [], "down": [{"time":"06:17","type":"普通","destination":"長野"}, /* ... */ ] },
-    "中軽井沢": { "up": [{"time":"06:05","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:21","type":"普通","destination":"長野"}, /* ... */] },
-    "屋代": { "up": [{"time":"05:43","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:53","type":"普通","destination":"長野"}, /* ... */] },
-    "屋代高校前": { "up": [{"time":"05:41","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:56","type":"普通","destination":"長野"}, /* ... */] },
-    "上田": { "up": [{"time":"05:48","type":"普通","destination":"小諸"}, /* ... */], "down": [{"time":"06:28","type":"普通","destination":"長野"}, /* ... */] },
-    "篠ノ井": { "up": [{"time":"05:36","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:37","type":"普通","destination":"長野"}, /* ... */] }
-    // ... And so on for all other stations
+export const stationFileNames = {
+    "軽井沢": "karuizawa", "中軽井沢": "naka-karuizawa", "信濃追分": "shinano-oiwake",
+    "御代田": "miyota", "平原": "hirahara", "小諸": "komoro", "滋野": "shigeno",
+    "田中": "tanaka", "大屋": "oya", "信濃国分寺": "shinano-kokubunji", "上田": "ueda",
+    "西上田": "nishi-ueda", "テクノさかき": "tekuno-sakaki", "坂城": "sakaki", "戸倉": "togura",
+    "千曲": "chikuma", "屋代": "yashiro", "屋代高校前": "yashiro-koko-mae", "篠ノ井": "shinonoi",
+    "今井": "imai", "川中島": "kawanakajima", "安茂里": "amori", "長野": "nagano",
+    "北長野": "kita-nagano", "三才": "sansai", "豊野": "toyono", "牟礼": "mure",
+    "古間": "furuma", "黒姫": "kurohime", "妙高高原": "myoko-kogen"
 };

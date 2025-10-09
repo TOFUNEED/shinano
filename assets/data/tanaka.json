@@ -1,0 +1,253 @@
+{
+  "station_name": "田中",
+  "up": {
+    "arrivals": [],
+    "departures": [
+      {
+        "time": "06:18",
+        "train_number": "2612M"
+      },
+      {
+        "time": "06:50",
+        "train_number": "2614M"
+      },
+      {
+        "time": "07:12",
+        "train_number": "616M"
+      },
+      {
+        "time": "07:31",
+        "train_number": "618M"
+      },
+      {
+        "time": "07:54",
+        "train_number": "620M"
+      },
+      {
+        "time": "08:17",
+        "train_number": "2622M"
+      },
+      {
+        "time": "09:08",
+        "train_number": "2726M"
+      },
+      {
+        "time": "09:08",
+        "train_number": "6626M"
+      },
+      {
+        "time": "10:02",
+        "train_number": "2632M"
+      },
+      {
+        "time": "10:46",
+        "train_number": "1636M"
+      },
+      {
+        "time": "12:01",
+        "train_number": "1642M"
+      },
+      {
+        "time": "12:42",
+        "train_number": "2742M"
+      },
+      {
+        "time": "13:32",
+        "train_number": "2644M"
+      },
+      {
+        "time": "14:06",
+        "train_number": "1646M"
+      },
+      {
+        "time": "14:42",
+        "train_number": "2650M"
+      },
+      {
+        "time": "15:21",
+        "train_number": "654M"
+      },
+      {
+        "time": "16:00",
+        "train_number": "656M"
+      },
+      {
+        "time": "16:40",
+        "train_number": "2660M"
+      },
+      {
+        "time": "16:40",
+        "train_number": "6660M"
+      },
+      {
+        "time": "17:18",
+        "train_number": "2662M"
+      },
+      {
+        "time": "17:40",
+        "train_number": "664M"
+      },
+      {
+        "time": "18:14",
+        "train_number": "2666M"
+      },
+      {
+        "time": "18:37",
+        "train_number": "668M"
+      },
+      {
+        "time": "19:07",
+        "train_number": "780M"
+      },
+      {
+        "time": "19:36",
+        "train_number": "672M"
+      },
+      {
+        "time": "20:30",
+        "train_number": "1674M"
+      },
+      {
+        "time": "20:59",
+        "train_number": "676M"
+      },
+      {
+        "time": "21:33",
+        "train_number": "786M"
+      },
+      {
+        "time": "22:21",
+        "train_number": "1688M"
+      },
+      {
+        "time": "23:33",
+        "train_number": "1692M"
+      }
+    ]
+  },
+  "down": {
+    "arrivals": [],
+    "departures": [
+      {
+        "time": "06:18",
+        "train_number": "1615M"
+      },
+      {
+        "time": "06:58",
+        "train_number": "2619M"
+      },
+      {
+        "time": "06:58",
+        "train_number": "6619M"
+      },
+      {
+        "time": "07:17",
+        "train_number": "601M"
+      },
+      {
+        "time": "07:39",
+        "train_number": "623M"
+      },
+      {
+        "time": "07:59",
+        "train_number": "625M"
+      },
+      {
+        "time": "08:23",
+        "train_number": "753M"
+      },
+      {
+        "time": "08:54",
+        "train_number": "627M"
+      },
+      {
+        "time": "09:35",
+        "train_number": "2629M"
+      },
+      {
+        "time": "10:06",
+        "train_number": "2631M"
+      },
+      {
+        "time": "10:42",
+        "train_number": "1633M"
+      },
+      {
+        "time": "11:35",
+        "train_number": "2635M"
+      },
+      {
+        "time": "12:15",
+        "train_number": "2637M"
+      },
+      {
+        "time": "12:55",
+        "train_number": "2641M"
+      },
+      {
+        "time": "13:35",
+        "train_number": "2645M"
+      },
+      {
+        "time": "14:07",
+        "train_number": "2649M"
+      },
+      {
+        "time": "15:15",
+        "train_number": "767M"
+      },
+      {
+        "time": "16:09",
+        "train_number": "1657M"
+      },
+      {
+        "time": "16:42",
+        "train_number": "659M"
+      },
+      {
+        "time": "17:13",
+        "train_number": "1661M"
+      },
+      {
+        "time": "17:43",
+        "train_number": "663M"
+      },
+      {
+        "time": "18:16",
+        "train_number": "2667M"
+      },
+      {
+        "time": "18:16",
+        "train_number": "2669M"
+      },
+      {
+        "time": "19:03",
+        "train_number": "775M"
+      },
+      {
+        "time": "19:38",
+        "train_number": "1607M"
+      },
+      {
+        "time": "20:09",
+        "train_number": "777M"
+      },
+      {
+        "time": "20:57",
+        "train_number": "675M"
+      },
+      {
+        "time": "21:34",
+        "train_number": "779M"
+      },
+      {
+        "time": "22:06",
+        "train_number": "677M"
+      },
+      {
+        "time": "22:55",
+        "train_number": "781M"
+      }
+    ]
+  }
+}

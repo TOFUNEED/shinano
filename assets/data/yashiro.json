@@ -1,0 +1,322 @@
+{
+  "station_name": "屋代",
+  "up": {
+    "arrivals": [],
+    "departures": [
+      {
+        "time": "05:43",
+        "train_number": "2612M"
+      },
+      {
+        "time": "06:16",
+        "train_number": "2614M"
+      },
+      {
+        "time": "06:38",
+        "train_number": "616M"
+      },
+      {
+        "time": "06:56",
+        "train_number": "618M"
+      },
+      {
+        "time": "07:07",
+        "train_number": "1618M"
+      },
+      {
+        "time": "07:19",
+        "train_number": "620M"
+      },
+      {
+        "time": "07:41",
+        "train_number": "2622M"
+      },
+      {
+        "time": "07:55",
+        "train_number": "1602M"
+      },
+      {
+        "time": "08:15",
+        "train_number": "1626M"
+      },
+      {
+        "time": "08:26",
+        "train_number": "2726M"
+      },
+      {
+        "time": "08:26",
+        "train_number": "6626M"
+      },
+      {
+        "time": "08:48",
+        "train_number": "1628M"
+      },
+      {
+        "time": "09:01",
+        "train_number": "1630M"
+      },
+      {
+        "time": "09:25",
+        "train_number": "2632M"
+      },
+      {
+        "time": "10:07",
+        "train_number": "1636M"
+      },
+      {
+        "time": "10:45",
+        "train_number": "2638M"
+      },
+      {
+        "time": "11:25",
+        "train_number": "1642M"
+      },
+      {
+        "time": "12:05",
+        "train_number": "2742M"
+      },
+      {
+        "time": "12:45",
+        "train_number": "2644M"
+      },
+      {
+        "time": "13:25",
+        "train_number": "1646M"
+      },
+      {
+        "time": "14:05",
+        "train_number": "2650M"
+      },
+      {
+        "time": "14:46",
+        "train_number": "654M"
+      },
+      {
+        "time": "15:25",
+        "train_number": "656M"
+      },
+      {
+        "time": "16:05",
+        "train_number": "2660M"
+      },
+      {
+        "time": "16:05",
+        "train_number": "6660M"
+      },
+      {
+        "time": "16:42",
+        "train_number": "2662M"
+      },
+      {
+        "time": "17:05",
+        "train_number": "664M"
+      },
+      {
+        "time": "17:38",
+        "train_number": "2666M"
+      },
+      {
+        "time": "18:02",
+        "train_number": "668M"
+      },
+      {
+        "time": "18:23",
+        "train_number": "780M"
+      },
+      {
+        "time": "19:01",
+        "train_number": "672M"
+      },
+      {
+        "time": "19:20",
+        "train_number": "784M"
+      },
+      {
+        "time": "19:43",
+        "train_number": "1674M"
+      },
+      {
+        "time": "20:24",
+        "train_number": "676M"
+      },
+      {
+        "time": "20:58",
+        "train_number": "786M"
+      },
+      {
+        "time": "21:42",
+        "train_number": "1688M"
+      },
+      {
+        "time": "22:19",
+        "train_number": "690M"
+      },
+      {
+        "time": "22:59",
+        "train_number": "1692M"
+      },
+      {
+        "time": "23:40",
+        "train_number": "2686M"
+      }
+    ]
+  },
+  "down": {
+    "arrivals": [],
+    "departures": [
+      {
+        "time": "05:28",
+        "train_number": "1613M"
+      },
+      {
+        "time": "05:57",
+        "train_number": "617M"
+      },
+      {
+        "time": "06:30",
+        "train_number": "1617M"
+      },
+      {
+        "time": "06:53",
+        "train_number": "2619M"
+      },
+      {
+        "time": "07:21",
+        "train_number": "6619M"
+      },
+      {
+        "time": "07:33",
+        "train_number": "601M"
+      },
+      {
+        "time": "07:33",
+        "train_number": "1621M"
+      },
+      {
+        "time": "08:02",
+        "train_number": "751M"
+      },
+      {
+        "time": "08:14",
+        "train_number": "625M"
+      },
+      {
+        "time": "08:35",
+        "train_number": "753M"
+      },
+      {
+        "time": "08:58",
+        "train_number": "627M"
+      },
+      {
+        "time": "09:32",
+        "train_number": "2629M"
+      },
+      {
+        "time": "10:10",
+        "train_number": "2631M"
+      },
+      {
+        "time": "10:50",
+        "train_number": "1633M",
+        "note": "軽井沢リゾート1号"
+      },
+      {
+        "time": "11:31",
+        "train_number": "2635M"
+      },
+      {
+        "time": "12:11",
+        "train_number": "2637M"
+      },
+      {
+        "time": "12:50",
+        "train_number": "2641M"
+      },
+      {
+        "time": "13:30",
+        "train_number": "2645M"
+      },
+      {
+        "time": "14:10",
+        "train_number": "2649M"
+      },
+      {
+        "time": "14:42",
+        "train_number": "2651M"
+      },
+      {
+        "time": "15:15",
+        "train_number": "1653M"
+      },
+      {
+        "time": "15:51",
+        "train_number": "767M"
+      },
+      {
+        "time": "16:18",
+        "train_number": "1657M"
+      },
+      {
+        "time": "16:44",
+        "train_number": "659M"
+      },
+      {
+        "time": "16:56",
+        "train_number": "1661M"
+      },
+      {
+        "time": "17:26",
+        "train_number": "663M"
+      },
+      {
+        "time": "17:48",
+        "train_number": "2667M"
+      },
+      {
+        "time": "18:18",
+        "train_number": "2669M"
+      },
+      {
+        "time": "18:51",
+        "train_number": "775M"
+      },
+      {
+        "time": "18:56",
+        "train_number": "671M"
+      },
+      {
+        "time": "19:07",
+        "train_number": "6671M"
+      },
+      {
+        "time": "19:37",
+        "train_number": "1607M"
+      },
+      {
+        "time": "20:13",
+        "train_number": "777M"
+      },
+      {
+        "time": "20:53",
+        "train_number": "675M"
+      },
+      {
+        "time": "21:31",
+        "train_number": "779M"
+      },
+      {
+        "time": "22:09",
+        "train_number": "677M"
+      },
+      {
+        "time": "22:40",
+        "train_number": "781M"
+      },
+      {
+        "time": "23:30",
+        "train_number": "683M"
+      }
+    ]
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "station_name": "妙高高原",
+  "up": {
+    "arrivals": [],
+    "departures": [
+      {
+        "time": "06:02",
+        "train_number": "124D"
+      },
+      {
+        "time": "06:52",
+        "train_number": "318M"
+      },
+      {
+        "time": "07:49",
+        "train_number": "130D"
+      },
+      {
+        "time": "09:08",
+        "train_number": "326M"
+      },
+      {
+        "time": "10:52",
+        "train_number": "328M"
+      },
+      {
+        "time": "11:46",
+        "train_number": "134D"
+      },
+      {
+        "time": "13:06",
+        "train_number": "330M"
+      },
+      {
+        "time": "14:38",
+        "train_number": "336M"
+      },
+      {
+        "time": "15:54",
+        "train_number": "140D"
+      },
+      {
+        "time": "16:42",
+        "train_number": "342M"
+      },
+      {
+        "time": "17:35",
+        "train_number": "348M"
+      },
+      {
+        "time": "18:13",
+        "train_number": "146D"
+      },
+      {
+        "time": "19:13",
+        "train_number": "352M"
+      },
+      {
+        "time": "19:53",
+        "train_number": "356M"
+      },
+      {
+        "time": "20:53",
+        "train_number": "150D"
+      },
+      {
+        "time": "22:08",
+        "train_number": "356M"
+      }
+    ]
+  },
+  "down": {
+    "arrivals": [
+      {
+        "time": "06:44",
+        "train_number": "313M"
+      },
+      {
+        "time": "07:07",
+        "train_number": "315M"
+      },
+      {
+        "time": "08:31",
+        "train_number": "317M"
+      },
+      {
+        "time": "10:08",
+        "train_number": "131D"
+      },
+      {
+        "time": "11:34",
+        "train_number": "327M"
+      },
+      {
+        "time": "11:33",
+        "train_number": "6301M"
+      },
+      {
+        "time": "12:58",
+        "train_number": "329M"
+      },
+      {
+        "time": "14:05",
+        "train_number": "331M"
+      },
+      {
+        "time": "14:55",
+        "train_number": "137D"
+      },
+      {
+        "time": "16:11",
+        "train_number": "335M"
+      },
+      {
+        "time": "16:53",
+        "train_number": "339M"
+      },
+      {
+        "time": "17:52",
+        "train_number": "341M"
+      },
+      {
+        "time": "18:55",
+        "train_number": "143D"
+      },
+      {
+        "time": "19:31",
+        "train_number": "345M"
+      },
+      {
+        "time": "20:34",
+        "train_number": "351M"
+      },
+      {
+        "time": "22:02",
+        "train_number": "149D"
+      },
+      {
+        "time": "22:49",
+        "train_number": "357M"
+      }
+    ],
+    "departures": []
+  }
+}

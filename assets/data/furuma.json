@@ -1,0 +1,141 @@
+{
+  "station_name": "古間",
+  "up": {
+    "arrivals": [],
+    "departures": [
+      {
+        "time": "06:16",
+        "train_number": "124D"
+      },
+      {
+        "time": "07:06",
+        "train_number": "318M"
+      },
+      {
+        "time": "08:03",
+        "train_number": "130D"
+      },
+      {
+        "time": "09:22",
+        "train_number": "326M"
+      },
+      {
+        "time": "11:05",
+        "train_number": "328M"
+      },
+      {
+        "time": "12:00",
+        "train_number": "6302M"
+      },
+      {
+        "time": "13:19",
+        "train_number": "330M"
+      },
+      {
+        "time": "14:52",
+        "train_number": "336M"
+      },
+      {
+        "time": "16:07",
+        "train_number": "140D"
+      },
+      {
+        "time": "16:55",
+        "train_number": "342M"
+      },
+      {
+        "time": "17:48",
+        "train_number": "348M"
+      },
+      {
+        "time": "18:27",
+        "train_number": "146D"
+      },
+      {
+        "time": "19:27",
+        "train_number": "352M"
+      },
+      {
+        "time": "20:06",
+        "train_number": "356M"
+      },
+      {
+        "time": "21:07",
+        "train_number": "150D"
+      },
+      {
+        "time": "22:21",
+        "train_number": "356M"
+      }
+    ]
+  },
+  "down": {
+    "arrivals": [],
+    "departures": [
+      {
+        "time": "06:30",
+        "train_number": "313M"
+      },
+      {
+        "time": "06:53",
+        "train_number": "315M"
+      },
+      {
+        "time": "08:17",
+        "train_number": "317M"
+      },
+      {
+        "time": "09:54",
+        "train_number": "131D"
+      },
+      {
+        "time": "11:20",
+        "train_number": "327M"
+      },
+      {
+        "time": "12:44",
+        "train_number": "329M"
+      },
+      {
+        "time": "13:51",
+        "train_number": "331M"
+      },
+      {
+        "time": "14:41",
+        "train_number": "137D"
+      },
+      {
+        "time": "15:57",
+        "train_number": "335M"
+      },
+      {
+        "time": "16:39",
+        "train_number": "339M"
+      },
+      {
+        "time": "17:38",
+        "train_number": "341M"
+      },
+      {
+        "time": "18:41",
+        "train_number": "143D"
+      },
+      {
+        "time": "19:17",
+        "train_number": "345M"
+      },
+      {
+        "time": "20:20",
+        "train_number": "351M"
+      },
+      {
+        "time": "21:48",
+        "train_number": "149D"
+      },
+      {
+        "time": "22:35",
+        "train_number": "357M"
+      }
+    ]
+  }
+}

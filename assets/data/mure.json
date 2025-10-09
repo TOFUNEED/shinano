@@ -1,0 +1,175 @@
+{
+  "station_name": "牟礼",
+  "up": {
+    "arrivals": [],
+    "departures": [
+      {
+        "time": "06:23",
+        "train_number": "124D",
+        "note": "飯山線"
+      },
+      {
+        "time": "07:13",
+        "train_number": "318M",
+        "note": "飯山線"
+      },
+      {
+        "time": "08:10",
+        "train_number": "130D",
+        "note": "飯山線"
+      },
+      {
+        "time": "09:29",
+        "train_number": "326M",
+        "note": "飯山線"
+      },
+      {
+        "time": "11:12",
+        "train_number": "328M"
+      },
+      {
+        "time": "12:07",
+        "train_number": "6302M"
+      },
+      {
+        "time": "12:19",
+        "train_number": "132D",
+        "note": "飯山線"
+      },
+      {
+        "time": "13:26",
+        "train_number": "330M",
+        "note": "飯山線"
+      },
+      {
+        "time": "14:59",
+        "train_number": "336M"
+      },
+      {
+        "time": "16:14",
+        "train_number": "140D",
+        "note": "飯山線"
+      },
+      {
+        "time": "17:02",
+        "train_number": "342M",
+        "note": "飯山線"
+      },
+      {
+        "time": "17:55",
+        "train_number": "348M"
+      },
+      {
+        "time": "18:34",
+        "train_number": "146D",
+        "note": "飯山線"
+      },
+      {
+        "time": "19:34",
+        "train_number": "352M",
+        "note": "飯山線"
+      },
+      {
+        "time": "20:13",
+        "train_number": "356M"
+      },
+      {
+        "time": "21:14",
+        "train_number": "150D",
+        "note": "飯山線"
+      },
+      {
+        "time": "22:28",
+        "train_number": "356M",
+        "note": "飯山線"
+      }
+    ]
+  },
+  "down": {
+    "arrivals": [],
+    "departures": [
+      {
+        "time": "06:23",
+        "train_number": "313M",
+        "note": "飯山線 越後川口行"
+      },
+      {
+        "time": "06:46",
+        "train_number": "315M",
+        "note": "飯山線 戸狩野沢温泉行"
+      },
+      {
+        "time": "08:10",
+        "train_number": "317M",
+        "note": "飯山線 戸狩野沢温泉行"
+      },
+      {
+        "time": "09:47",
+        "train_number": "131D",
+        "note": "飯山線 戸狩野沢温泉行"
+      },
+      {
+        "time": "11:13",
+        "train_number": "327M",
+        "note": "飯山線 越後川口行"
+      },
+      {
+        "time": "11:13",
+        "train_number": "6301M"
+      },
+      {
+        "time": "12:37",
+        "train_number": "329M",
+        "note": "飯山線 飯山行"
+      },
+      {
+        "time": "13:44",
+        "train_number": "331M",
+        "note": "飯山線 十日町行"
+      },
+      {
+        "time": "14:34",
+        "train_number": "137D",
+        "note": "飯山線 戸狩野沢温泉行"
+      },
+      {
+        "time": "15:50",
+        "train_number": "335M",
+        "note": "飯山線 越後川口行"
+      },
+      {
+        "time": "16:32",
+        "train_number": "339M",
+        "note": "飯山線 越後川口行"
+      },
+      {
+        "time": "17:31",
+        "train_number": "341M",
+        "note": "飯山線 戸狩野沢温泉行"
+      },
+      {
+        "time": "18:34",
+        "train_number": "143D"
+      },
+      {
+        "time": "19:10",
+        "train_number": "345M",
+        "note": "飯山線 戸狩野沢温泉行"
+      },
+      {
+        "time": "20:13",
+        "train_number": "351M"
+      },
+      {
+        "time": "21:41",
+        "train_number": "149D",
+        "note": "飯山線 戸狩野沢温泉行"
+      },
+      {
+        "time": "22:28",
+        "train_number": "357M",
+        "note": "飯山線 飯山行"
+      }
+    ]
+  }
+}

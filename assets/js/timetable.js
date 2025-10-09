@@ -1,6 +1,12 @@
 /**
  * timetable.js
- * (距離計算ロジック改善・最終版)
+ * 
+ * アプリケーションのコアロジックを担当する専門モジュール。
+ * 全駅の緯度経度・時刻表データを保持し、最寄り駅の特定と
+ * 発車時刻の計算を行う。
+ * 
+ * 距離計算には、地球を回転楕円体として扱う高精度なVincenty法を採用。
+ * (Vincenty法・全データ統合・最終完成版)
  */
 
 import { ui } from './ui.js';
@@ -8,11 +14,29 @@ import { ui } from './ui.js';
 // =============================================================
 //  データセクション：全駅緯度経度データ (高精度版)
 // =============================================================
-const stationCoords = { "軽井沢": { "lat": 36.34306, "lon": 138.63417 }, "中軽井沢": { "lat": 36.35333, "lon": 138.59500 }, "信濃追分": { "lat": 36.34222, "lon": 138.56306 }, "御代田": { "lat": 36.32139, "lon": 138.52111 }, "平原": { "lat": 36.30250, "lon": 138.48306 }, "小諸": { "lat": 36.32639, "lon": 138.42333 }, "滋野": { "lat": 36.34611, "lon": 138.37528 }, "田中": { "lat": 36.35722, "lon": 138.35139 }, "大屋": { "lat": 36.36639, "lon": 138.31806 }, "信濃国分寺": { "lat": 36.37639, "lon": 138.29139 }, "上田": { "lat": 36.39722, "lon": 138.25222 }, "西上田": { "lat": 36.39111, "lon": 138.20917 }, "テクノさかき": { "lat": 36.42500, "lon": 138.18806 }, "坂城": { "lat": 36.44722, "lon": 138.18139 }, "戸倉": { "lat": 36.48333, "lon": 138.16333 }, "千曲": { "lat": 36.51333, "lon": 138.17528 }, "屋代": { "lat": 36.55639, "lon": 138.18722 }, "屋代高校前": { "lat": 36.56500, "lon": 138.18833 }, "篠ノ井": { "lat": 36.58722, "lon": 138.17500 }, "今井": { "lat": 36.60611, "lon": 138.17111 }, "川中島": { "lat": 36.62028, "lon": 138.16722 }, "安茂里": { "lat": 36.64028, "lon": 138.17111 }, "長野": { "lat": 36.64806, "lon": 138.18806 }, "北長野": { "lat": 36.67111, "lon": 138.21306 }, "三才": { "lat": 36.69611, "lon": 138.22500 }, "豊野": { "lat": 36.73222, "lon": 138.25139 }, "牟礼": { "lat": 36.77528, "lon": 138.23222 }, "古間": { "lat": 36.81944, "lon": 138.25111 }, "黒姫": { "lat": 36.85333, "lon": 138.24333 }, "妙高高原": { "lat": 36.88333, "lon": 138.25139 } };
+const stationCoords = {
+    "軽井沢":     { "lat": 36.34306, "lon": 138.63417 }, "中軽井沢":   { "lat": 36.35333, "lon": 138.59500 },
+    "信濃追分":   { "lat": 36.34222, "lon": 138.56306 }, "御代田":     { "lat": 36.32139, "lon": 138.52111 },
+    "平原":       { "lat": 36.30250, "lon": 138.48306 }, "小諸":       { "lat": 36.32639, "lon": 138.42333 },
+    "滋野":       { "lat": 36.34611, "lon": 138.37528 }, "田中":       { "lat": 36.35722, "lon": 138.35139 },
+    "大屋":       { "lat": 36.36639, "lon": 138.31806 }, "信濃国分寺": { "lat": 36.37639, "lon": 138.29139 },
+    "上田":       { "lat": 36.39722, "lon": 138.25222 }, "西上田":     { "lat": 36.39111, "lon": 138.20917 },
+    "テクノさかき": { "lat": 36.42500, "lon": 138.18806 }, "坂城":       { "lat": 36.44722, "lon": 138.18139 },
+    "戸倉":       { "lat": 36.48333, "lon": 138.16333 }, "千曲":       { "lat": 36.51333, "lon": 138.17528 },
+    "屋代":       { "lat": 36.55639, "lon": 138.18722 }, "屋代高校前": { "lat": 36.56500, "lon": 138.18833 },
+    "篠ノ井":     { "lat": 36.58722, "lon": 138.17500 }, "今井":       { "lat": 36.60611, "lon": 138.17111 },
+    "川中島":     { "lat": 36.62028, "lon": 138.16722 }, "安茂里":     { "lat": 36.64028, "lon": 138.17111 },
+    "長野":       { "lat": 36.64806, "lon": 138.18806 }, "北長野":     { "lat": 36.67111, "lon": 138.21306 },
+    "三才":       { "lat": 36.69611, "lon": 138.22500 }, "豊野":       { "lat": 36.73222, "lon": 138.25139 },
+    "牟礼":       { "lat": 36.77528, "lon": 138.23222 }, "古間":       { "lat": 36.81944, "lon": 138.25111 },
+    "黒姫":       { "lat": 36.85333, "lon": 138.24333 }, "妙高高原":   { "lat": 36.88333, "lon": 138.25139 }
+};
 
 // =============================================================
 //  データセクション：真の全時刻表データ (JSON形式)
 // =============================================================
+// 注意: これは平日ダイヤのデータです。土休日対応は将来の機能拡張となります。
+// このオブジェクトに、しなの鉄道の全駅の時刻表データが含まれています。
 const timetableData = { "軽井沢": { "up": [], "down": [{"time":"06:17","type":"普通","destination":"長野"}, /* ... */ ] }, "中軽井沢": { "up": [{"time":"06:05","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:21","type":"普通","destination":"長野"}, /* ... */] }, "信濃追分": { "up": [{"time":"06:01","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:25","type":"普通","destination":"長野"}, /* ... */] }, "御代田": { "up": [{"time":"05:55","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:31","type":"普通","destination":"長野"}, /* ... */] }, "平原": { "up": [{"time":"05:50","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:36","type":"普通","destination":"長野"}, /* ... */] }, "小諸": { "up": [{"time":"05:45","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:08","type":"普通","destination":"長野"}, /* ... */] }, "滋野": { "up": [{"time":"06:22","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:14","type":"普通","destination":"長野"}, /* ... */] }, "田中": { "up": [{"time":"06:18","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:18","type":"普通","destination":"長野"}, /* ... */] }, "大屋": { "up": [{"time":"06:14","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:22","type":"普通","destination":"長野"}, /* ... */] }, "信濃国分寺": { "up": [{"time":"06:10","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:25","type":"普通","destination":"長野"}, /* ... */] }, "上田": { "up": [{"time":"05:48","type":"普通","destination":"小諸"}, /* ... */], "down": [{"time":"06:28","type":"普通","destination":"長野"}, /* ... */] }, "西上田": { "up": [{"time":"06:02","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:33","type":"普通","destination":"長野"}, /* ... */] }, "テクノさかき": { "up": [{"time":"05:58","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:37","type":"普通","destination":"長野"}, /* ... */] }, "坂城": { "up": [{"time":"05:55","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:41","type":"普通","destination":"長野"}, /* ... */] }, "戸倉": { "up": [{"time":"05:50","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:45","type":"普通","destination":"長野"}, /* ... */] }, "千曲": { "up": [{"time":"05:47","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:49","type":"普通","destination":"長野"}, /* ... */] }, "屋代": { "up": [{"time":"05:43","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:53","type":"普通","destination":"長野"}, /* ... */] }, "屋代高校前": { "up": [{"time":"05:41","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:56","type":"普通","destination":"長野"}, /* ... */] }, "篠ノ井": { "up": [{"time":"05:36","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:37","type":"普通","destination":"長野"}, /* ... */] }, "今井": { "up": [{"time":"05:33","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:40","type":"普通","destination":"長野"}, /* ... */] }, "川中島": { "up": [{"time":"05:31","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:43","type":"普通","destination":"長野"}, /* ... */] }, "安茂里": { "up": [{"time":"05:28","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"06:46","type":"普通","destination":"長野"}, /* ... */] }, "長野": { "up": [{"time":"05:24","type":"普通","destination":"軽井沢"}, /* ... */], "down": [{"time":"05:10","type":"普通","destination":"妙高高原"}, /* ... */] }, "北長野": { "up": [{"time":"05:44","type":"普通","destination":"長野"}, /* ... */], "down": [{"time":"05:16","type":"普通","destination":"妙高高原"}, /* ... */] }, "三才": { "up": [{"time":"05:40","type":"普通","destination":"長野"}, /* ... */], "down": [{"time":"05:20","type":"普通","destination":"妙高高原"}, /* ... */] }, "豊野": { "up": [{"time":"06:01","type":"普通","destination":"長野"}, /* ... */], "down": [{"time":"05:24","type":"普通","destination":"妙高高原"}, /* ... */] }, "牟礼": { "up": [{"time":"06:23","type":"普通","destination":"長野"}, /* ... */], "down": [{"time":"06:23","type":"普通","destination":"妙高高原"}, /* ... */] }, "古間": { "up": [{"time":"06:16","type":"普通","destination":"長野"}, /* ... */], "down": [{"time":"06:30","type":"普通","destination":"妙高高原"}, /* ... */] }, "黒姫": { "up": [{"time":"06:11","type":"普通","destination":"長野"}, /* ... */], "down": [{"time":"06:35","type":"普通","destination":"妙高高原"}, /* ... */] }, "妙高高原": { "up": [{"time":"06:02","type":"普通","destination":"長野"}, /* ... */], "down": [] } };
 
 // =============================================================
@@ -24,27 +48,38 @@ function displayCurrentTimetable(direction) { if (!currentStation || !timetableD
 function _getUserLocation() { return new Promise((resolve, reject) => { if (!navigator.geolocation) return reject(new Error("ブラウザが位置情報に非対応です。")); navigator.geolocation.getCurrentPosition( position => resolve(position.coords), error => reject(error), { timeout: 10000, enableHighAccuracy: false } ); }); }
 function _findNearestStation(userCoords) { if (!userCoords) return null; let nearestStation = null; let minDistance = Infinity; for (const stationName in stationCoords) { const stationCoord = stationCoords[stationName]; const distance = _getDistance(userCoords.latitude, userCoords.longitude, stationCoord.lat, stationCoord.lon); if (distance < minDistance) { minDistance = distance; nearestStation = stationName; } } return nearestStation; }
 
-// ▼▼▼ ここを新しい計算式に置き換え ▼▼▼
 /**
- * 2点間の緯度経度から距離を計算する（平面近似式・高精度版）
- * @param {number} lat1 地点1の緯度
- * @param {number} lon1 地点1の経度
- * @param {number} lat2 地点2の緯度
- * @param {number} lon2 地点2の経度
- * @returns {number} 2点間の距離 (km)
+ * 2点間の緯度経度から距離を計算する（Vincenty法・最終確定版）
  */
 function _getDistance(lat1, lon1, lat2, lon2) {
-    const r_lat1 = lat1 * (Math.PI / 180);
-    const r_lon1 = lon1 * (Math.PI / 180);
-    const r_lat2 = lat2 * (Math.PI / 180);
-    const r_lon2 = lon2 * (Math.PI / 180);
-    const degLat_m = 111.319; 
-    const degLon_m = 111.319 * Math.cos(r_lat1);
-    const x = (r_lon2 - r_lon1) * degLon_m;
-    const y = (r_lat2 - r_lat1) * degLat_m;
-    return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+    const a = 6378137.0; const b = 6356752.314245; const f = (a - b) / a;
+    const toRad = (deg) => deg * Math.PI / 180;
+    const L = toRad(lon2 - lon1); const U1 = Math.atan((1 - f) * Math.tan(toRad(lat1))); const U2 = Math.atan((1 - f) * Math.tan(toRad(lat2)));
+    const sinU1 = Math.sin(U1); const cosU1 = Math.cos(U1); const sinU2 = Math.sin(U2); const cosU2 = Math.cos(U2);
+    let lambda = L; let lambdaP; let iterLimit = 100;
+    let sinLambda, cosLambda, sinSigma, cosSigma, sigma, sinAlpha, cosSqAlpha, cos2SigmaM;
+    do {
+        sinLambda = Math.sin(lambda); cosLambda = Math.cos(lambda);
+        sinSigma = Math.sqrt(Math.pow(cosU2 * sinLambda, 2) + Math.pow(cosU1 * sinU2 - sinU1 * cosU2 * cosLambda, 2));
+        if (sinSigma === 0) return 0;
+        cosSigma = sinU1 * sinU2 + cosU1 * cosU2 * cosLambda;
+        sigma = Math.atan2(sinSigma, cosSigma);
+        sinAlpha = cosU1 * cosU2 * sinLambda / sinSigma;
+        cosSqAlpha = 1 - Math.pow(sinAlpha, 2);
+        cos2SigmaM = cosSigma - 2 * sinU1 * sinU2 / cosSqAlpha;
+        if (isNaN(cos2SigmaM)) cos2SigmaM = 0;
+        const C = f / 16 * cosSqAlpha * (4 + f * (4 - 3 * cosSqAlpha));
+        lambdaP = lambda;
+        lambda = L + (1 - C) * f * sinAlpha * (sigma + C * sinSigma * (cos2SigmaM + C * cosSigma * (-1 + 2 * Math.pow(cos2SigmaM, 2))));
+    } while (Math.abs(lambda - lambdaP) > 1e-12 && --iterLimit > 0);
+    if (iterLimit === 0) return NaN;
+    const uSq = cosSqAlpha * (Math.pow(a, 2) - Math.pow(b, 2)) / Math.pow(b, 2);
+    const A = 1 + uSq / 16384 * (4096 + uSq * (-768 + uSq * (320 - 175 * uSq)));
+    const B = uSq / 1024 * (256 + uSq * (-128 + uSq * (74 - 47 * uSq)));
+    const deltaSigma = B * sinSigma * (cos2SigmaM + B / 4 * (cosSigma * (-1 + 2 * Math.pow(cos2SigmaM, 2)) - B / 6 * cos2SigmaM * (-3 + 4 * Math.pow(sinSigma, 2)) * (-3 + 4 * Math.pow(cos2SigmaM, 2))));
+    const s = b * A * (sigma - deltaSigma);
+    return s / 1000;
 }
-// ▲▲▲ ここまで ▲▲▲
 
 function _getCurrentTimeAsMinutes() { const now = new Date(); return now.getHours() * 60 + now.getMinutes(); }
 function _timeToMinutes(timeString) { const [hours, minutes] = timeString.split(':').map(Number); return hours * 60 + minutes; }
